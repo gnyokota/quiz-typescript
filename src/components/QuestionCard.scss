@@ -1,0 +1,51 @@
+.questions-wrapper {
+  background-color: #64dfdf;
+  border-radius: 10px;
+  width: 50vw;
+  margin: 30px auto;
+  padding: 20px 10px;
+}
+
+.quiz-question {
+  color: #252525;
+}
+
+.questions-btn {
+  -webkit-border-radius: 11px;
+  -moz-border-radius: 11px;
+  border-radius: 11px;
+  font-family: "Yusei Magic", sans-serif;
+  color: #64dfdf;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 5px;
+  margin: 10px;
+  background-color: #6930c3;
+  border: solid #6930c3 1px;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  height: 60px;
+  width: 80%;
+}
+
+.questions-btn:hover {
+  background: #64dfdf;
+  color: #6930c3;
+  text-decoration: none;
+}
+
+.questions-btn[disabled="disabled"],
+.questions-btn:disabled {
+  background: #252525;
+  color: #252525;
+}
+
+@media only screen and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+  .questions-wrapper {
+    width: 80vw;
+    margin: 20px auto;
+    padding: 10px;
+  }
+}
