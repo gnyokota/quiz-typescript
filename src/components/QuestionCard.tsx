@@ -22,6 +22,7 @@ const QuestionCard = ({
         userAnswer,
         questionNr, 
         totalQuestions}: Props) => {
+                console.log(userAnswer);
         return(
         <div>
             <p className='quiz-questionNr'>
@@ -40,7 +41,8 @@ const QuestionCard = ({
                         <div key={answer}>
                         {/* if we have userAnswer we disable the other buttons */}
                          <button disabled={userAnswer? true: false}
-                        className='questions-btn'
+                        className={userAnswer !== undefined && answer === userAnswer.correctAnswer
+                                ? 'questions-btn correct': "questions-btn false"}
                          value={answer}
                          onClick={checkAnswerFunction}>
                                 <span dangerouslySetInnerHTML={{__html:(answer)}}></span>   

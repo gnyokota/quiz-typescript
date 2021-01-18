@@ -20,11 +20,12 @@ export const fetchQuiz = async(amount:number, difficulty: string) =>{
     //Here we need to awaits because the first one waits for the fetch
     //fetch return a promise, but with await we get the response
     //the second waits for the JSON conversion.
-        const data = await((fetch(endpoint))
-        .then (response => response.json())
-        .catch(error => console.log("error:", error)));
-    
-    return(data.results.map((question: Question)=>{
+        const response = await (fetch(endpoint))
+        const data= await response.json()
+        .catch(error => console.log("error:", error));
+
+    const APIdata = (data.results.map((question: Question)=>{
         return {...question, answers: shuffleArray([...question.incorrect_answers, question.correct_answer])};
     }));
+    return APIdata;
 }; 

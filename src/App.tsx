@@ -19,34 +19,39 @@ function App() {
   const [loading, setLoading]= useState(false); 
   const [questions,setQuestions]= useState<QuestionsState[]>([]);
   const [number,setNumber]= useState(0);
-  const[userAnswers, setUserAnswers]= useState<AnswersState[]>([]);
+  const[userAnswers, setUserAnswers]= useState<AnswersState[]>([{
+    question: '',
+    answer: '' ,
+    correct: false ,
+    correctAnswer: ''
+  }]);
   const [score,setScore]= useState(0); 
   const [gameOver, setGameOver] = useState(true);
   const [parameters, setParameters] = useState({
     numberQuestions: 1, 
     userLevel: '',
   });
+  
 
   const levelQuiz = (event: React.ChangeEvent<HTMLSelectElement>) =>{
-    setParameters({...parameters, userLevel: event.target.value});
+    const targetLevel=event.currentTarget.value;
+    setParameters({...parameters, userLevel:targetLevel });
   }
 
   const numberQuiz = (event: React.ChangeEvent<HTMLSelectElement>) =>{
-    setParameters({...parameters, numberQuestions: +event.target.value});
+    const targetNumber = +event.currentTarget.value;
+    setParameters({...parameters, numberQuestions: targetNumber });
   }
 
   const fetchData= async()=>{
-    try{const newQuestions = await fetchQuiz(parameters.numberQuestions, parameters.userLevel);
-    setQuestions(newQuestions)
-    console.log(newQuestions);}
-    catch(error){
-      console.log('error:',error);
-    }
+    const newQuestions = await fetchQuiz(parameters.numberQuestions, parameters.userLevel);
+    setQuestions(newQuestions);
   }
 
   useEffect(()=>{
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    fetchData()},[] );
+    fetchData()},[gameOver] );
+
 
   const handleSubmit = (event: any) =>{
     event.preventDefault();
@@ -58,7 +63,6 @@ function App() {
     setUserAnswers([]); 
     setNumber(0); 
     setLoading(false);
-    fetchData();
   }
 
   const checkAnswer =(e: React.MouseEvent<HTMLButtonElement>)=>{
@@ -81,6 +85,7 @@ function App() {
         }
         setUserAnswers(prevState => [...prevState, answersState]);
       }
+     
   }
 
   const nextQuestion = () =>{
@@ -96,6 +101,7 @@ function App() {
   const playAgain =() =>{
      //and we do not have a game over 
      setGameOver(true);
+     setParameters({...parameters, numberQuestions:1,  userLevel: ''});
   }
 
 
@@ -107,7 +113,7 @@ function App() {
       <label>
         Choose the level: 
       </label>
-      <select className='quiz-level'value={parameters.userLevel} onChange={levelQuiz}>
+      <select className='quiz-level' value={parameters.userLevel} onChange={levelQuiz}>
         <option value="">---</option>
         <option value="easy">Easy</option>
         <option value="medium">Medium</option>

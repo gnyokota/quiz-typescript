@@ -1,5 +1,9 @@
+$darkGrey: #252525;
+$lightGreen: #64dfdf;
+$purple: #6930c3;
+
 .questions-wrapper {
-  background-color: #64dfdf;
+  background-color: $lightGreen;
   border-radius: 10px;
   width: 50vw;
   margin: 30px auto;
@@ -7,7 +11,7 @@
 }
 
 .quiz-question {
-  color: #252525;
+  color: $darkGrey;
 }
 
 .questions-btn {
@@ -15,13 +19,13 @@
   -moz-border-radius: 11px;
   border-radius: 11px;
   font-family: "Yusei Magic", sans-serif;
-  color: #64dfdf;
+  color: $lightGreen;
   font-size: 16px;
   font-weight: 400;
   padding: 5px;
   margin: 10px;
-  background-color: #6930c3;
-  border: solid #6930c3 1px;
+  background-color: $purple;
+  border: solid $purple 1px;
   text-decoration: none;
   display: inline-block;
   cursor: pointer;
@@ -31,14 +35,20 @@
 }
 
 .questions-btn:hover {
-  background: #64dfdf;
-  color: #6930c3;
+  background: $lightGreen;
+  color: $purple;
   text-decoration: none;
 }
 
-.questions-btn[disabled="disabled"],
-.questions-btn:disabled {
-  background: #252525;
+.correct[disabled="disabled"],
+.correct:disabled {
+  background: #00af91;
+  color: #252525;
+}
+
+.false[disabled="disabled"],
+.false:disabled {
+  background: #ec4646;
   color: #252525;
 }
 
