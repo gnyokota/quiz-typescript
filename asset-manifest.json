@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/quiz-typescript/static/css/main.077bdb6f.chunk.css",
+    "main.css": "/quiz-typescript/static/css/main.4cd2f26c.chunk.css",
     "main.js": "/quiz-typescript/static/js/main.2168af5c.chunk.js",
     "main.js.map": "/quiz-typescript/static/js/main.2168af5c.chunk.js.map",
     "runtime-main.js": "/quiz-typescript/static/js/runtime-main.a962f66d.js",
@@ -8,13 +8,13 @@
     "static/js/2.d3b04c38.chunk.js": "/quiz-typescript/static/js/2.d3b04c38.chunk.js",
     "static/js/2.d3b04c38.chunk.js.map": "/quiz-typescript/static/js/2.d3b04c38.chunk.js.map",
     "index.html": "/quiz-typescript/index.html",
-    "static/css/main.077bdb6f.chunk.css.map": "/quiz-typescript/static/css/main.077bdb6f.chunk.css.map",
+    "static/css/main.4cd2f26c.chunk.css.map": "/quiz-typescript/static/css/main.4cd2f26c.chunk.css.map",
     "static/js/2.d3b04c38.chunk.js.LICENSE.txt": "/quiz-typescript/static/js/2.d3b04c38.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.a962f66d.js",
     "static/js/2.d3b04c38.chunk.js",
-    "static/css/main.077bdb6f.chunk.css",
+    "static/css/main.4cd2f26c.chunk.css",
     "static/js/main.2168af5c.chunk.js"
   ]
 }
