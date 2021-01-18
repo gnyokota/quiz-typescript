@@ -22,7 +22,6 @@ const QuestionCard = ({
         userAnswer,
         questionNr, 
         totalQuestions}: Props) => {
-                console.log(userAnswer);
         return(
         <div>
             <p className='quiz-questionNr'>

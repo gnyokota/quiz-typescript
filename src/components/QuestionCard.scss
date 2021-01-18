@@ -59,3 +59,11 @@ $purple: #6930c3;
     padding: 10px;
   }
 }
+
+@media only screen and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+  .questions-wrapper {
+    width: 90vw;
+    margin: 20px auto;
+    padding: 10px;
+  }
+}
