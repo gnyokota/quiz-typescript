@@ -44,8 +44,12 @@ function App() {
   }
 
   const fetchData= async()=>{
+    try{
     const newQuestions = await fetchQuiz(parameters.numberQuestions, parameters.userLevel);
     setQuestions(newQuestions);
+    } catch(err){
+      console.log("error:",err)
+    };
   }
 
   useEffect(()=>{
