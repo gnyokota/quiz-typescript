@@ -32,17 +32,6 @@ function App() {
     userLevel: '',
   });
   
-
-  const levelQuiz = (event: React.ChangeEvent<HTMLSelectElement>) =>{
-    const targetLevel=event.currentTarget.value;
-    setParameters({...parameters, userLevel:targetLevel });
-  }
-
-  const numberQuiz = (event: React.ChangeEvent<HTMLSelectElement>) =>{
-    const targetNumber = +event.currentTarget.value;
-    setParameters({...parameters, numberQuestions: targetNumber });
-  }
-
   const fetchData= async()=>{
     try{
     const newQuestions = await fetchQuiz(parameters.numberQuestions, parameters.userLevel);
@@ -54,8 +43,19 @@ function App() {
 
   useEffect(()=>{
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    fetchData()},[gameOver] );
+    fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[]);
 
+  const levelQuiz = (event: React.ChangeEvent<HTMLSelectElement>) =>{
+    const targetLevel=event.currentTarget.value;
+    setParameters({...parameters, userLevel:targetLevel });
+  }
+
+  const numberQuiz = (event: React.ChangeEvent<HTMLSelectElement>) =>{
+    const targetNumber = +event.currentTarget.value;
+    setParameters({...parameters, numberQuestions: targetNumber });
+  }
 
   const handleSubmit = (event: any) =>{
     event.preventDefault();
@@ -67,6 +67,7 @@ function App() {
     setUserAnswers([]); 
     setNumber(0); 
     setLoading(false);
+    fetchData();
   }
 
   const checkAnswer =(e: React.MouseEvent<HTMLButtonElement>)=>{
